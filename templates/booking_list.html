@@ -1,0 +1,49 @@
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+booking list
+{% endblock title %}
+
+{% block style %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-image: url('{% static "images/image1.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+</style>
+{% endblock style %}
+{% block body %}
+
+{% include "adminnav.html" %}
+<div class='p-5'>
+    <h2 class='text-light'>Booking List</h2>
+    <div class="row">
+        {% for booking in bookings %}
+        
+        <div class="col-xl-4 col-lg-6 mb-4">
+          <a href="{% url 'booking_detail' booking.id %}">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                    <p class="text-muted mb-0">Booking User : {{booking.user}}</p>
+                  <p class="fw-bold mb-1">Event : {{booking.event_price.event}}</p>
+                  <p class="text-muted mb-0">Room Type : {{booking.event_price.room_type}}</p>
+                  <p class="text-muted mb-0">Status : {{booking.status}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        </div>
+        {% endfor %}
+        </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,44 @@
+
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<style>
+  .main{
+    font-family: Arial, sans-serif;
+    background-image: url('{% static "images/image2.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+{% endblock style %}
+
+{% block body %}
+{% include "adminnav.html" %}
+<div class="center-container main">
+  <div class="form-container " style="height:100%">
+    <h2 class="title">Staff Register</h2>
+    <form method="post" class="form">
+      {% csrf_token %}
+      <input type="text" class="input" name="username" placeholder="Username">
+      <input type="email" class="input" name="email" placeholder="Email">
+      <input type="text" class="input" name="first_name" placeholder="First Name">
+
+      <input type="text" class="input" name="last_name" placeholder="Last Name">
+      
+      
+      <input type="text" class="input" name="phone" placeholder="Phone">
+      <input type="password" class="input" name="password" placeholder="Password">
+      <button type="submit" class="form-btn">Submit</button>
+    </form>
+  </div>
+</div>
+
+  {% endblock body %}

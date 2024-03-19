@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventEclipse - Auditorium Booking</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+    <style>
+      .main-container {
+        background-image: url('{% static "images/image1.jpg" %}');
+        background-size: cover;
+        background-position: center;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+        .main-container h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color:'white'
+        }
+        .main-container p {
+            font-size: 1.5rem;
+        }
+        .btn-primary {
+            background-color: #9c27b0; /* Purple button */
+            border-color: #9c27b0;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .feature {
+            background-color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature h4 {
+            margin-bottom: 20px;
+            color: #9c27b0; /* Purple */
+        }
+        .feature p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        /* Section styles */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #9c27b0; /* Purple */
+            margin-bottom: 20px;
+        }
+        .section-content {
+            text-align: justify;
+        }
+        @media (max-width: 768px) {
+            .jumbotron {
+                padding: 80px 0;
+            }
+            .jumbotron h1 {
+                font-size: 2.5rem;
+            }
+            .jumbotron p {
+                font-size: 1.2rem;
+            }
+            .feature h4 {
+                font-size: 1.5rem;
+            }
+            .feature p {
+                font-size: 1rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+{% include "navbar.html" %}
+<div class="main-container">
+    <div class="container">
+        <h1 class='text-white'>Welcome to EventEclipse Auditorium Booking</h1>
+        <p class='text-white'>Book the perfect venue for your event!</p>
+        <a class="btn btn-primary btn-lg" href="/booking/book/" role="button">Book Now</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="feature">
+                <h4>Wide Selection</h4>
+                <p>Choose from a wide selection of auditoriums for various events.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature">
+                <h4>Easy Booking</h4>
+                <p>Our booking process is simple and hassle-free.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature">
+                <h4>Expert Support</h4>
+                <p>Get expert assistance throughout your booking process.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 section-content">
+                <p>Discover, book, and manage auditoriums effortlessly with EventEclipse. Seamlessly reserve the 
+                  perfect venue for your events, conferences, performances, and more. From intimate gatherings to grand occasions,
+                   unlock a world of 
+                  possibilities with our intuitive booking platform. Experience stress-free event planning with EventEclipse .</p>
+            </div>
+            <div class="aboutimg col-md-5">
+                <img src="https://bynder.southbankcentre.co.uk/m/159a885911618b98/original/SC-Commercial-Events_Royal-Festival-Hall-Auditorium-40.jpg" alt="About Us Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Services</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <h4>Event Planning</h4>
+                    <p>Let us handle the planning details for your event.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <h4>Venue Decoration</h4>
+                    <p>Transform your venue into a spectacular setting.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <h4>Technical Support</h4>
+                    <p>Get assistance with audio, visual, and lighting setups.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 section-content">
+                <p>If you have any questions or inquiries, feel free to contact us:</p>
+                <p>Email:  eventeclipse@auditorium.com
+                </p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://www.mdesafe.com/uploads/contact-us-bg.jpg" alt="Contact Us Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

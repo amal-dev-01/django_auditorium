@@ -1,0 +1,86 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+booking
+{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/booking.css' %}">
+<style>
+    .main2{
+      font-family: Arial, sans-serif;
+      background-image: url('{% static "images/image2.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+{% endblock style %}
+{% block body %}
+
+{% include "navbar.html" %}
+<div class='main main2'>
+    <div class='form-container'>
+        <h1>Booking Form</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_event">Event:</label>
+            {{ form.event }}
+            <label for="id_room_type">Room Type:</label>
+            {{ form.room_type }}
+            <p class="price-display" id="price_display"></p>
+            <label for="id_date">Date:</label>
+            {{ form.date }}
+            <label for="id_time">Time:</label>
+            {{ form.time }}
+            <label for="id_user">User:</label>
+            {{ form.user }}
+            <label for="id_description">Description:</label>
+            {{ form.description }}
+            <label for="id_discount">Discount:</label>
+            {{ form.discount }}
+            <label for="id_advance">Advance:</label>
+            {{ form.advance }}
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+           
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</div>
+{% include "footer.html" %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function updatePrice() {
+            const selectedEvent = document.getElementById("id_event").value;
+            const selectedRoomType = document.getElementById("id_room_type").value;
+            console.log(selectedEvent, selectedRoomType)
+
+            if (selectedEvent && selectedRoomType) {
+                fetch(`/booking/booking/get_price/?event=${selectedEvent}&room_type=${selectedRoomType}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("price_display").textContent = `Price: ${data.price}`;
+                    })
+                    .catch(error => console.error(error));
+            } else {
+                document.getElementById("price_display").textContent = "";
+            }
+        }
+
+        document.getElementById("id_event").onchange = updatePrice;
+        document.getElementById("id_room_type").onchange = updatePrice;
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+    var minDate = new Date().toISOString().split('T')[0];
+    $("#id_date").attr('min', minDate);
+  });
+  </script>
+  
+
+{% endblock body %}

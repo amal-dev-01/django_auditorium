@@ -1,0 +1,102 @@
+
+.main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .form-container {
+    width: 100%; 
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    margin: 20px auto; 
+  }
+  
+  .form-container h1 {
+    text-align: center;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin: 10px 0 30px 0;
+    font-size: 28px;
+    font-weight: 800;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 18px; */
+  }
+  
+  
+  @media (max-width: 768px) {
+    .form-container input[type="text"],
+    .form-container input[type="date"],
+    .form-container input[type="time"],
+    .form-container select,
+    .form-container textarea {
+      font-size: 16px; 
+    }
+  }
+  
+  
+  .form-container input[type="text"],
+  .form-container input[type="date"],
+  .form-container input[type="time"],
+  .form-container select {
+    border-radius: 20px;
+    border: 1px solid #c0c0c0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    width: 100%;
+  }
+  
+  .form-container button[type="submit"] {
+    padding: 10px 15px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    border: 0 !important;
+    outline: 0 !important;
+    background: teal;
+    color: white;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+  }
+  
+  .form-container button[type="submit"]:active {
+    box-shadow: none;
+  }
+  
+  .form-container .price-display {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .form-container textarea {
+    border-radius: 20px;
+    border: 1px solid #c0c0c0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    padding: 12px 15px;
+  }
+  
+  .form-container input[type="number"] {
+    border-radius: 20px;
+    border: 1px solid #c0c0c0;
+    outline: 0 !important;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    width: 100%;
+  }
+  
+  .form-container textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }

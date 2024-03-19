@@ -1,0 +1,86 @@
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+booking
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/confirmation.css' %}">
+<style>
+    .main{
+      font-family: Arial, sans-serif;
+      background-image: url('{% static "images/image2.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+<style>
+]</style>
+{% endblock style %}
+{% block body %}
+{% include "navbar.html" %}
+<div class='main'>
+<div class="form-container">
+  <h1>Booking Confirmation</h1>
+  {% if booking %}
+      <table class="confirmation-table">
+          <tr>
+              <th>Detail</th>
+              <th>Value</th>
+          </tr>
+          <tr>
+              <td>Event:</td>
+              <td>{{ booking.event_price.event }}</td>
+          </tr>
+          <tr>
+              <td>Date:</td>
+              <td>{{ booking.date }}</td>
+          </tr>
+          <tr>
+              <td>Time:</td>
+              <td>{{ booking.time }}</td>
+          </tr>
+          <tr>
+              <td>Room Type:</td>
+              <td>{{ booking.event_price.room_type }}</td>
+          </tr>
+          <tr>
+              <td>Discount:</td>
+              <td>{{ booking.discount }}%</td>
+          </tr>
+          <tr>
+              <td>Total Price:</td>
+              <td>{{ booking.total_price }}</td>
+          </tr>
+          <tr>
+              <td>Advance Payment:</td>
+              <td>{{ booking.advance }}</td>
+          </tr>
+          <tr>
+              <td>Balance Due:</td>
+              <td>{{ booking.balance }}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td>{{ booking.status }}</td>
+        </tr>
+        </table>
+        <button class='back-button' onclick="redirectToHome()">Back</button>
+  {% else %}
+      <p>Invalid booking ID. Please try again.</p>
+  {% endif %}
+</div>
+</div>
+{% include "footer.html" %}
+
+<script>
+  function redirectToHome() {
+    window.location.href = "/";
+  }
+</script>
+
+
+  {% endblock body %}

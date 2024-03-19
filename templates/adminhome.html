@@ -1,0 +1,96 @@
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+booking list
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/adminhome.css' %}">
+<style>
+    .main{
+      font-family: Arial, sans-serif;
+      background-image: url('{% static "images/image1.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+    
+{% endblock style %}
+{% block body %}
+
+<div class="main" style="height:100vh">
+{% include "adminnav.html" %}
+
+<p class='text-light m-5' style="font-size: 4.6rem;">Hello Admin, Welcome Back</p>
+    <div class="row m-5">
+        <div class="col-xl-4 col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">Weddings</p>
+                  <p class="text-muted mb-0"> {{ wedding_count}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="col-xl-4 col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center">
+                    <div class="ms-3">
+                      <p class="fw-bold mb-1">DJ Night</p>
+                      <p class="text-muted mb-0">{{party_count}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                <div class="col-xl-4 col-lg-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center">
+                        <div class="ms-3">
+                          <p class="fw-bold mb-1">Party</p>
+                          <p class="text-muted mb-0">{{birthday_count}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

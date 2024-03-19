@@ -1,0 +1,41 @@
+
+
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+add user
+{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<style>
+  .main{
+    font-family: Arial, sans-serif;
+    background-image: url('{% static "images/image1.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+{% endblock style %}
+{% block body %}
+{% include "navbar.html" %}
+<div class='main'>
+<div class="center-container">
+  <div class="form-container">
+    <h2 class="title">User Register</h2>
+    <form method="post" class="form">
+      {% csrf_token %}
+      <input type="text" class="input" name="username" placeholder="Username">
+      <input type="email" class="input" name="email" placeholder="Email">
+      <input type="text" class="input" name="first_name" placeholder="First Name">
+      <input type="text" class="input" name="last_name" placeholder="Last Name">
+      <input type="text" class="input" name="phone" placeholder="Phone">
+      <button type="submit" class="form-btn">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+{% include "footer.html" %}
+  {% endblock body %}
